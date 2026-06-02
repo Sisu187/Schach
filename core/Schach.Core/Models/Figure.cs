@@ -1,4 +1,6 @@
-﻿namespace Schach.Core;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Schach.Core;
 
 public abstract class Figure
 {
@@ -8,8 +10,18 @@ public abstract class Figure
 
    protected string _picturePath;
 
+   public enum ColorEnum
+   {
+      White,
+      Black
+   }
+
+   protected ColorEnum _color;
+
    public abstract void Move();
 
    public abstract void Take();
+
+   public abstract void Display();
 
 }
