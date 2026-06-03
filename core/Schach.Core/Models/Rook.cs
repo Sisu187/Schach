@@ -42,7 +42,7 @@ public class Rook : Figure
 
             if (figureOnSquare != null && figureOnSquare.Color == _color)
             {
-               continue;
+               break;
             }
 
             moves.Add((newRow, newCol));

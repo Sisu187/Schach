@@ -12,6 +12,7 @@ namespace Schach.Avalonia;
 public partial class MainWindow : Window
 {
     private Board _board = new Board();
+    private Figure _selectedFigure;
     public MainWindow()
     {
         InitializeComponent();
@@ -74,11 +75,12 @@ public partial class MainWindow : Window
             Grid.SetRow(image, figure.Position.row);
             Grid.SetColumn(image, figure.Position.col);
 
-            var capturedFigure = figure;
+            var selectedFigure = figure;
             image.PointerPressed += (sender, e) =>
             {
                 ExtraLayer.Children.Clear();
-                var moves = capturedFigure.GetAvailableMoves(_board);
+                _selectedFigure = selectedFigure;
+                var moves = _selectedFigure.GetAvailableMoves(_board);
                 ShowAvailableMoves(moves);
             };
 
@@ -100,6 +102,21 @@ public partial class MainWindow : Window
             };
             Grid.SetRow(circle, row);
             Grid.SetColumn(circle, col);
+
+            var targetRow = row;
+            var targetCol = col;
+
+            circle.PointerPressed += (sender, e) =>
+            {
+                if (_selectedFigure != null)
+                {
+                    _selectedFigure.Move((targetRow, targetCol));
+                    _selectedFigure = null;
+                    ExtraLayer.Children.Clear();
+                    SetupFigures();
+                }
+            };
+
             ExtraLayer.Children.Add(circle);
         }
     }
