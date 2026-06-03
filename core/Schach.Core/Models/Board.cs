@@ -47,8 +47,5 @@ public class Board
         _figures.Add(new Pawn((1, 5), Figure.ColorEnum.Black));
         _figures.Add(new Pawn((1, 6), Figure.ColorEnum.Black));
         _figures.Add(new Pawn((1, 7), Figure.ColorEnum.Black));
-
-        _figures.Add(new Knight((5, 4), Figure.ColorEnum.Black));
-        _figures.Add(new Knight((5, 5), Figure.ColorEnum.Black));
     }
 }
