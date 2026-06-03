@@ -10,9 +10,9 @@ public class Bishop : Figure
       _picturePath = (_color == ColorEnum.White) ? "Assets/pictures/white_bishop.png" : "Assets/pictures/black_bishop.png";
    }
 
-   public override void Move()
+   public override void Move((int row, int col) newPosition)
    {
-
+      _position = newPosition;
    }
 
    public override void Take()

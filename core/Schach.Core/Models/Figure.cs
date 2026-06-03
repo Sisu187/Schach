@@ -24,7 +24,7 @@ public abstract class Figure
 
    public ColorEnum Color { get => _color; set => _color = value; }
 
-   public abstract void Move();
+   public abstract void Move((int row, int col) newPosition);
 
    public abstract void Take();
 
