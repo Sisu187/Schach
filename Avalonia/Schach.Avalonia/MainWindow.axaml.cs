@@ -74,6 +74,14 @@ public partial class MainWindow : Window
             Grid.SetRow(image, figure.Position.row);
             Grid.SetColumn(image, figure.Position.col);
 
+            var capturedFigure = figure;
+            image.PointerPressed += (sender, e) =>
+            {
+                ExtraLayer.Children.Clear();
+                var moves = capturedFigure.GetAvailableMoves(_board);
+                ShowAvailableMoves(moves);
+            };
+
             PieceLayer.Children.Add(image);
         }
     }
