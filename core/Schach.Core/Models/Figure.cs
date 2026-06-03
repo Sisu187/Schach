@@ -4,11 +4,15 @@ namespace Schach.Core;
 
 public abstract class Figure
 {
-   protected (int, int) _position;
+   protected (int row, int col) _position;
 
    protected string _name;
 
    protected string _picturePath;
+
+   public (int row, int col) Position { get => _position; set => _position = value; }
+   public string Name { get => _name; set => _name = value; }
+   public string PicturePath { get =>  _picturePath; set => _picturePath = value; }
 
    public enum ColorEnum
    {
@@ -18,10 +22,13 @@ public abstract class Figure
 
    protected ColorEnum _color;
 
+   public ColorEnum Color { get => _color; set => _color = value; }
+
    public abstract void Move();
 
    public abstract void Take();
 
-   public abstract void Display();
+   public abstract void OnClick_ShowAvailableMoves();
 
+   public abstract List<(int row, int col)> GetAvailableMoves(Board board);
 }
