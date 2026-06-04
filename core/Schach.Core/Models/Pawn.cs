@@ -10,11 +10,6 @@ public class Pawn : Figure
       _picturePath = (_color == ColorEnum.White) ? "Assets/pictures/white_pawn.png" : "Assets/pictures/black_pawn.png";
    }
 
-   public override void Move((int row, int col) newPosition)
-   {
-      _position = newPosition;
-   }
-
    public override void Take()
    {
 

@@ -6,6 +6,7 @@ using Schach.Core;
 using Avalonia.Platform;
 using System.Collections.Generic;
 using Avalonia.Controls.Shapes;
+using System.Linq;
 
 namespace Schach.Avalonia;
 
@@ -110,6 +111,11 @@ public partial class MainWindow : Window
             {
                 if (_selectedFigure != null)
                 {
+                    Figure targetFigure = _board.Figures.FirstOrDefault(t => t.Position == (targetRow, targetCol));
+                    if (targetFigure != null)
+                    {
+                        _board.Figures.Remove(targetFigure);
+                    }
                     _selectedFigure.Move((targetRow, targetCol));
                     _selectedFigure = null;
                     ExtraLayer.Children.Clear();

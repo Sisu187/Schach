@@ -9,12 +9,6 @@ public class Knight : Figure
       _color = color;
       _picturePath = (_color == ColorEnum.White) ? "Assets/pictures/white_knight.png" : "Assets/pictures/black_knight.png";
    }
-
-   public override void Move((int row, int col) newPosition)
-   {
-      _position = newPosition;
-   }
-
    public override void Take()
    {
       
